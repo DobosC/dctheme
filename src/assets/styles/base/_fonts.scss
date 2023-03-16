@@ -30,32 +30,28 @@ $extra-black: 900;
  */
 
 // Regular - 400
-@include webfont(
-  'Adobe Blank',
-  'adobe-blank-regular',
-  $regular,
-  normal,
-  'U+0000-007F'
-);
+@include webfont("arial", "arial-font", $regular, normal, "U+0000-007F");
 
+// Bold - 900
+@include webfont("arial", "arial-bold", $regular, normal, "U+0000-007F");
 /**
  * Fontfaces
  */
 
-$sans-fontface: 'Adobe Blank';
-$serif-fontface: 'Georgia';
-$cursive-fontface: 'Comic Sans MS';
-$mono-fontface: 'Courier';
+$sans-fontface: "Arial";
+$serif-fontface: "Georgia";
+$cursive-fontface: "Comic Sans MS";
+$mono-fontface: "Courier";
 
 // Font-families stack
 $sans-fontface-stack: $sans-fontface, Helvetica, Arial, sans-serif;
-$serif-fontface-stack: $serif-fontface, 'Times New Roman', Times, serif;
+$serif-fontface-stack: $serif-fontface, "Times New Roman", Times, serif;
 $cursive-fontface-stack: $cursive-fontface, cursive;
 $mono-fontface-stack: $mono-fontface, monospace;
 
 // System fontface stacks used when webfonts are not loaded
-$system-sans-fontface-stack: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
-$system-serif-fontface-stack: 'Georgia', 'Times New Roman', Times, serif;
+$system-sans-fontface-stack: "Helvetica", "Helvetica Neue", "Arial", sans-serif;
+$system-serif-fontface-stack: "Georgia", "Times New Roman", Times, serif;
 
 /**
  * Defaults

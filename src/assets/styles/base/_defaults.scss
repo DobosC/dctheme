@@ -25,7 +25,7 @@
 
 // HTML
 html {
-  font-feature-settings: 'kern';
+  font-feature-settings: "kern";
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   font-variant-ligatures: common-ligatures;
@@ -45,7 +45,7 @@ body {
   padding: rem(20px);
   background-color: $color-background-body;
   color: $color-text;
-  font-family: $default-fontface-stack;
+  font-family: $sans-fontface;
   font-size: $default-font-size;
   font-weight: $default-font-weight;
   line-height: $default-line-height;

@@ -139,7 +139,7 @@ export const compress = () => {
     .pipe(
       gulpif(
         (file) => file.relative.split(".").pop() !== "zip",
-        replace("_themename", info.name)
+        replace("dctheme", info.name)
       )
     )
     .pipe(zip(`${info.name}.zip`))

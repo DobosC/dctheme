@@ -1,5 +1,4 @@
 <?php wp_head(); ?>
-<p>Theme Start</p>
+<h1>Theme Start</h1>
 
-<?php echo "teeeest"?>
 <?php wp_footer(); ?>
