@@ -1,4 +1,8 @@
-<?php wp_head(); ?>
-<h1>Theme Start</h1>
-
-<?php wp_footer(); ?>
+<?php
+//
+// Name: Index Template
+//
+?>
+<?php get_header(); ?>
+<?php the_content(); ?>
+<?php get_footer(); ?>
