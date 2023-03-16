@@ -21,7 +21,7 @@ const PRODUCTION = yargs.argv.prod;
 
 const paths = {
   styles: {
-    src: ["src/assets/scss/bundle.scss", "src/assets/scss/admin.scss"],
+    src: ["src/assets/styles/app.scss"],
     dest: "dist/assets/css",
   },
   images: {
@@ -35,8 +35,8 @@ const paths = {
   other: {
     src: [
       "src/assets/**/*",
-      "!src/assets/{images,js,scss}",
-      "!src/assets/{images,js,scss}/**/*",
+      "!src/assets/{images,js,styles}",
+      "!src/assets/{images,js,styles}/**/*",
     ],
     dest: "dist/assets",
   },
@@ -52,21 +52,9 @@ const paths = {
       "!gulpfile.babel.js",
       "!package.json",
       "!package-lock.json",
-      "!archive-_themename_portfolio.php",
-      "!single-_themename_portfolio.php",
-      "!taxonomy-_themename_skills.php",
-      "!taxonomy-_themename_project_type.php",
     ],
     dest: "packaged",
   },
-};
-
-export const delete_replaced_filenames = () => {
-  return del(
-    paths.rename.src.map((filename) =>
-      filename.replace("_themename", info.name)
-    )
-  );
 };
 
 export const serve = (done) => {
@@ -102,7 +90,7 @@ export const images = () => {
 };
 
 export const watch = () => {
-  gulp.watch("src/assets/scss/**/*.scss", styles);
+  gulp.watch("src/assets/styles/**/*.scss", styles);
   gulp.watch("src/assets/js/**/*.js", gulp.series(scripts, reload));
   gulp.watch("**/*.php", reload);
   gulp.watch(paths.images.src, gulp.series(images, reload));
@@ -111,10 +99,6 @@ export const watch = () => {
 
 export const copy = () => {
   return gulp.src(paths.other.src).pipe(gulp.dest(paths.other.dest));
-};
-
-export const copyPlugins = () => {
-  return gulp.src(paths.plugins.src).pipe(gulp.dest(paths.plugins.dest));
 };
 
 export const scripts = () => {
@@ -170,9 +154,8 @@ export const dev = gulp.series(
 );
 export const build = gulp.series(
   clean,
-  gulp.parallel(styles, scripts, images, copy),
-  copyPlugins
+  gulp.parallel(styles, scripts, images, copy)
 );
-export const bundle = gulp.series(build, compress, delete_replaced_filenames);
+export const bundle = gulp.series(build, compress);
 
 export default dev;

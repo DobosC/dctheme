@@ -1,0 +1,55 @@
+/**
+ * Main stylus file
+ */
+
+/**
+ * Dependencies
+ */
+
+@import "../../../node_modules/normalize.css/normalize";
+
+/**
+ * Variables
+ */
+
+@import "base/variables";
+
+/**
+ * Utils
+ */
+
+@import "utils/debug";
+@import "utils/functions";
+@import "utils/helpers";
+
+/**
+ * Base
+ */
+
+@import "base/colors";
+@import "base/fonts";
+@import "base/typography";
+@import "base/defaults";
+@import "base/animations";
+@import "base/buttons";
+@import "base/forms";
+
+/**
+ * Layout
+ */
+
+@import "layout/header";
+@import "layout/grid";
+@import "layout/footer";
+
+/**
+ * Modules
+ */
+
+@import "modules/cursor";
+
+/**
+ * Pages
+ */
+
+@import "pages/home";
