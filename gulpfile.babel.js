@@ -28,15 +28,15 @@ const paths = {
     src: "src/assets/images/**/*.{jpg,jpeg,png,svg,gif}",
     dest: "dist/assets/images",
   },
-  scrips: {
-    src: ["src/assets/js/bundle.js"],
+  scripts: {
+    src: ["src/assets/scripts/app.js"],
     dest: "dist/assets/js",
   },
   other: {
     src: [
       "src/assets/**/*",
-      "!src/assets/{images,js,styles}",
-      "!src/assets/{images,js,styles}/**/*",
+      "!src/assets/{images,scripts,styles}",
+      "!src/assets/{images,scripts,styles}/**/*",
     ],
     dest: "dist/assets",
   },
@@ -91,7 +91,7 @@ export const images = () => {
 
 export const watch = () => {
   gulp.watch("src/assets/styles/**/*.scss", styles);
-  gulp.watch("src/assets/js/**/*.js", gulp.series(scripts, reload));
+  gulp.watch("src/assets/scripts/**/*.js", gulp.series(scripts, reload));
   gulp.watch("**/*.php", reload);
   gulp.watch(paths.images.src, gulp.series(images, reload));
   gulp.watch(paths.other.src, gulp.series(copy, reload));
@@ -103,7 +103,7 @@ export const copy = () => {
 
 export const scripts = () => {
   return gulp
-    .src(paths.scrips.src)
+    .src(paths.scripts.src)
     .pipe(named())
     .pipe(
       webpack({
@@ -130,7 +130,7 @@ export const scripts = () => {
         mode: PRODUCTION ? "production" : "development",
       })
     )
-    .pipe(gulp.dest(paths.scrips.dest));
+    .pipe(gulp.dest(paths.scripts.dest));
 };
 
 export const compress = () => {
